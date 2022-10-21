@@ -1,7 +1,7 @@
-import { Model, INTEGER, STRING, DECIMAL } from 'sequelize';
+import { Model, INTEGER, STRING } from 'sequelize';
 import db from '.';
 
-class Example extends Model {
+class User extends Model {
   id: number;
   username: string;
   role: string;
@@ -9,7 +9,7 @@ class Example extends Model {
   password: string;
 }
 
-Example.init(
+User.init(
   {
     id: {
       type: INTEGER,
@@ -37,7 +37,7 @@ Example.init(
   {
     underscored: true,
     sequelize: db,
-    modelName: 'example',
+    modelName: 'users',
     timestamps: false,
   },
 );
@@ -53,4 +53,4 @@ Example.init(
 // Example.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
 // Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
 
-export default Example;
+export default User;
