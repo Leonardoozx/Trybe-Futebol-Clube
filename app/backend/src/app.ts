@@ -1,4 +1,5 @@
 import * as express from 'express';
+import LoginRoutes from './routes/login.routes';
 
 class App {
   public app: express.Express;
@@ -8,8 +9,7 @@ class App {
 
     this.config();
 
-    // Não remover essa rota
-    this.app.get('/', (req, res) => res.json({ ok: true }));
+    this.app.get('/', (_req, res) => res.json({ ok: true }));
   }
 
   private config():void {
@@ -26,12 +26,10 @@ class App {
 
   public start(PORT: string | number):void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+    this.app.use('/login', new LoginRoutes().router);
   }
 }
 
-// starts the project
-
 export { App };
 
-// A execução dos testes de cobertura depende dessa exportação
 export const { app } = new App();
