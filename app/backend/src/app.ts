@@ -11,6 +11,8 @@ class App {
     this.config();
 
     this.app.get('/', (_req, res) => res.json({ ok: true }));
+    this.app.use('/login', new LoginRoutes().router);
+    this.app.use('/teams', new TeamsRoutes().router);
   }
 
   private config():void {
@@ -27,8 +29,6 @@ class App {
 
   public start(PORT: string | number):void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
-    this.app.use('/login', new LoginRoutes().router);
-    this.app.use('/teams', new TeamsRoutes().router);
   }
 }
 
