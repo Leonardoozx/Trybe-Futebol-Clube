@@ -18,7 +18,7 @@ User.init(
       autoIncrement: true,
     },
     username: {
-      type: STRING(30),
+      type: STRING,
       allowNull: false,
     },
     role: {
