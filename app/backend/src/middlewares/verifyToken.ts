@@ -7,9 +7,12 @@ const verifyLoginHeader: express.RequestHandler = (req, res, next) => {
   const { headers } = req;
   const token = headers.authorization;
   if (!token) return res.status(400).json({ message: 'Unauthorized user' });
-  const tokenValidation = jwt.verify(token, JWT_SECRET as string);
-  if (!tokenValidation) { return res.status(401).json({ message: 'invalid token' }); }
-  next();
+  try {
+    jwt.verify(token, JWT_SECRET as string);
+    next();
+  } catch (e) {
+    return res.status(401).json({ message: 'Token must be a valid token' });
+  }
 };
 
 export default verifyLoginHeader;
