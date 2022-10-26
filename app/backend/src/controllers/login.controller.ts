@@ -3,7 +3,7 @@ import LoginServices from '../services/login.service';
 import createJWT from '../utils/createJWT';
 
 class LoginController {
-  constructor(private loginServices = new LoginServices()) {}
+  constructor(private _loginServices = new LoginServices()) {}
 
   public login: express.RequestHandler = (req, res) => {
     const { body } = req;
@@ -13,7 +13,7 @@ class LoginController {
 
   public loginValidate: express.RequestHandler = async (req, res) => {
     const { headers } = req;
-    const role = await this.loginServices.getUserRole(<{ authorization:'' }>headers);
+    const role = await this._loginServices.getUserRole(<{ authorization:'' }>headers);
     res.status(200).json({ role });
   };
 }
