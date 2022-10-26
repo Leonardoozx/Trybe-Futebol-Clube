@@ -1,4 +1,5 @@
 import * as express from 'express';
+import IMatchUpdate from '../interfaces/IMatchUpdate';
 
 import MatchesServices from '../services/matches.service';
 
@@ -27,6 +28,11 @@ class MatchesController {
   public finishMatch: express.RequestHandler = async ({ params }, res) => {
     await this._matchesServices.finishMatch(+params.id as number);
     res.status(200).json({ message: 'Finished' });
+  };
+
+  public updateMatch: express.RequestHandler = async ({ params, body }, res) => {
+    await this._matchesServices.updateMatch(params.id as string, body as IMatchUpdate);
+    res.status(200).json(({ message: 'Match updated!' }));
   };
 }
 
