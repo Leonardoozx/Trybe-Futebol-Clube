@@ -3,16 +3,16 @@ import TeamsController from '../controllers/teams.controller';
 
 class TeamsRoutes {
   public router: express.Router;
-  private teamsController: TeamsController;
+  private _teamsController: TeamsController;
   constructor() {
     this.router = express.Router();
-    this.teamsController = new TeamsController();
+    this._teamsController = new TeamsController();
     this.getAllTeams();
   }
 
   private getAllTeams = async () => {
-    this.router.get('/', this.teamsController.getAllTeams);
-    this.router.get('/:id', this.teamsController.getTeamById);
+    this.router.get('/', this._teamsController.getAllTeams);
+    this.router.get('/:id', this._teamsController.getTeamById);
   };
 }
 
