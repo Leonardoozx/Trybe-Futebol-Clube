@@ -23,6 +23,11 @@ class MatchesController {
     const insertedMatch = await this._matchesServices.insertMatch(body);
     res.status(201).json(insertedMatch);
   };
+
+  public finishMatch: express.RequestHandler = async ({ params }, res) => {
+    await this._matchesServices.finishMatch(+params.id as number);
+    res.status(200).json({ message: 'Finished' });
+  };
 }
 
 export default MatchesController;
