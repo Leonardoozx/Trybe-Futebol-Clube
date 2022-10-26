@@ -36,6 +36,10 @@ class TeamsServices {
     });
 
   public insertMatch = (body: object) => Match.create({ ...body, inProgress: true });
+
+  public finishMatch = async (id: number): Promise<void> => {
+    await Match.update({ inProgress: false }, { where: { id } });
+  };
 }
 
 export default TeamsServices;
