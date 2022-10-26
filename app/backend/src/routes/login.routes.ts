@@ -1,6 +1,7 @@
 import * as express from 'express';
 import LoginMiddlewares from '../middlewares/loginMiddlewares';
 import LoginController from '../controllers/login.controller';
+import verifyToken from '../middlewares/verifyToken';
 
 class LoginRoutes {
   public router: express.Router;
@@ -21,7 +22,7 @@ class LoginRoutes {
     );
     this.router.get(
       '/validate',
-      this.loginMiddlewares.verifyLoginHeader,
+      verifyToken,
       this.loginController.loginValidate,
     );
   };
