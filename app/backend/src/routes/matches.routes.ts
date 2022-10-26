@@ -22,8 +22,10 @@ class MatchesRoutes {
       '/',
       verifyToken,
       this._matchMiddlewares.verifyTeams,
+      this._matchMiddlewares.verifyIfTeamExists,
       this._matchesController.insertMatch,
     );
+    this.router.patch('/:id/finish', this._matchesController.finishMatch);
   };
 }
 export default MatchesRoutes;
