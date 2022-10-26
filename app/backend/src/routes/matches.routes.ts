@@ -26,6 +26,7 @@ class MatchesRoutes {
       this._matchesController.insertMatch,
     );
     this.router.patch('/:id/finish', this._matchesController.finishMatch);
+    this.router.patch('/:id', this._matchesController.updateMatch);
   };
 }
 export default MatchesRoutes;
