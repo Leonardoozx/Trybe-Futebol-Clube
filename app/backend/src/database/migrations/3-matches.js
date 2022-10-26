@@ -14,8 +14,8 @@ module.exports = {
         allowNull: false,
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
-        foreignKey: {
-          model: "Team",
+        references: {
+          model: "teams",
           key: "id",
         },
       },
@@ -30,8 +30,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
-        foreignKey: {
-          model: "Team",
+        references: {
+          model: "teams",
           key: "id",
         },
       },
