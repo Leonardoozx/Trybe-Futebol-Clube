@@ -1,4 +1,3 @@
-import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 
 import UserServices from './user.service';
