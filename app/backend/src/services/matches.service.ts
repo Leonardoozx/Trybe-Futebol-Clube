@@ -2,7 +2,7 @@ import IMatchUpdate from '../interfaces/IMatchUpdate';
 import Team from '../database/models/Team';
 import Match from '../database/models/Match';
 
-class TeamsServices {
+class MatchesServices {
   public getAllMatches = () =>
     Match.findAll({
       include: [
@@ -49,4 +49,4 @@ class TeamsServices {
   };
 }
 
-export default TeamsServices;
+export default MatchesServices;
