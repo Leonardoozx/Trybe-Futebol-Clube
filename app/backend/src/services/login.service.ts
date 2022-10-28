@@ -14,7 +14,7 @@ class LoginServices {
     const user = jwt.verify(auth as string, JWT_SECRET as string);
     const { email } = <{ email: '' }>user;
     const userInfos = await this.userServices.findUserByEmail(email as string);
-    const role = userInfos?.role;
+    const { role } = <{ role: string }>userInfos;
     return role;
   };
 }
