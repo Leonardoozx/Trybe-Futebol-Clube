@@ -10,7 +10,7 @@ class LeaderbordServices {
     const allTeamInfos: ILeaderbod[] = [];
     allTeams.forEach((team) => {
       allTeamInfos.push({
-        name: team.teamHome.teamName as string,
+        name: 'future implementation',
         totalPoints: 0,
         totalGames: 0,
         totalVictories: 0,
