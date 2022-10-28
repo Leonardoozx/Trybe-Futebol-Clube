@@ -7,7 +7,7 @@ class LoginController {
 
   public login: express.RequestHandler = (req, res) => {
     const { body } = req;
-    const token = createJWT(body?.email);
+    const token = createJWT(body.email);
     res.status(200).json({ token });
   };
 
