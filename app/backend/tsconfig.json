@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": false,
     "target": "es2019",
     "module": "commonjs",
     "sourceMap": true,                     
