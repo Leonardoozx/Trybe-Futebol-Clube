@@ -20,10 +20,17 @@ import {
   wrongPasswordLoginMock,
   wrongTokenMock,
 } from './mock/loginMocks';
+import UserServices from '../services/user.service';
+import User from '../database/models/User';
 
 const { expect } = chai;
 
 describe('/login - Login requests', () => {
+  const userServices = new UserServices();
+  before(() => {
+    sinon.stub(userServices, 'findUserByEmail').resolves(userMock as User);
+  });
+  after(() => sinon.restore());
   it('must return an error when trying to request with wrong email', async () => {
     const httpResponse = await chai
       .request(app)
@@ -57,7 +64,10 @@ describe('/login - Login requests', () => {
       .post('/login')
       .send(rightFieldsLoginMock);
     expect(httpResponse.status).eq(200);
-    expect(httpResponse.body.token).equal(rightTokenMock);
+    const [firstTokenPart, secondTokenPart] =
+      httpResponse.body.token.split('.');
+    expect(firstTokenPart).equal(rightTokenMock.split('.')[0]);
+    expect(secondTokenPart).equal(rightTokenMock.split('.')[1]);
   });
 
   describe('login/validate - login/validate requests', () => {
