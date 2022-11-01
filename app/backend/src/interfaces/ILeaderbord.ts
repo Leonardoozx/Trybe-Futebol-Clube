@@ -1,5 +1,5 @@
-export default interface ILeaderbod {
-  name: string;
+export default interface ILeaderboard {
+  name: string | undefined;
   totalPoints: number;
   totalGames: number;
   totalVictories: number;
