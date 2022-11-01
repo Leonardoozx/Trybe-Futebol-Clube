@@ -19,6 +19,23 @@ class MatchesServices {
       ],
     });
 
+  public getAllEndedMatches = async () =>
+    Match.findAll({
+      include: [
+        {
+          model: Team,
+          as: 'teamHome',
+          attributes: { exclude: ['id'] },
+        },
+        {
+          model: Team,
+          as: 'teamAway',
+          attributes: { exclude: ['id'] },
+        },
+      ],
+      where: { inProgress: 0 },
+    });
+
   public getMatchesByQuery = (query: number) =>
     Match.findAll({
       where: { inProgress: query },
