@@ -133,6 +133,43 @@ class LeaderbordServices {
         })),
     );
   };
+
+  public getAllTeams = async () => {
+    const allHomeTeams = await this.getHomeTeams();
+    const allAwayTeams = await this.getAwayTeams();
+    const allTeams: ILeaderboard[] = [];
+    await Promise.all(
+      allHomeTeams.map(async (homeTeam) => {
+        for (let i = 0; i < allAwayTeams.length; i += 1) {
+          const awayTeam = allAwayTeams[i];
+          if (homeTeam.name === awayTeam.name) {
+            allTeams.push({
+              name: homeTeam.name,
+              totalPoints: homeTeam.totalPoints + awayTeam.totalPoints,
+              totalGames: homeTeam.totalGames + awayTeam.totalGames,
+              totalVictories: homeTeam.totalVictories + awayTeam.totalVictories,
+              totalDraws: homeTeam.totalDraws + awayTeam.totalDraws,
+              totalLosses: homeTeam.totalLosses + awayTeam.totalLosses,
+              goalsFavor: homeTeam.goalsFavor + awayTeam.goalsFavor,
+              goalsOwn: homeTeam.goalsOwn + awayTeam.goalsOwn,
+              goalsBalance: 0,
+              efficiency: '',
+            });
+          }
+        }
+      }),
+    );
+    return Promise.all(
+      allTeams
+        .map((team) => ({
+          ...team,
+          goalsBalance: (team.goalsFavor) - team.goalsOwn,
+          efficiency: String(
+            ((team.totalPoints / (team.totalGames * 3)) * 100).toFixed(2),
+          ),
+        })),
+    );
+  };
 }
 
 export default LeaderbordServices;

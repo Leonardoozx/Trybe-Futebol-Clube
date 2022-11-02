@@ -14,6 +14,11 @@ class LeaderbordController {
     const allAwayTeams = await this._leaderboardServices.getAwayTeams();
     res.status(200).json(sortLeaderboardTeams(allAwayTeams));
   };
+
+  public getAllTeams: express.RequestHandler = async (_req, res) => {
+    const allTeams = await this._leaderboardServices.getAllTeams();
+    res.status(200).json(sortLeaderboardTeams(allTeams));
+  };
 }
 
 export default LeaderbordController;

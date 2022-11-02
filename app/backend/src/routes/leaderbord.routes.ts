@@ -11,6 +11,7 @@ class LeaderbordRoutes {
   }
 
   private _allRoutes = () => {
+    this.router.get('/', this._leaderbordController.getAllTeams);
     this.router.get('/home', this._leaderbordController.getHomeTeams);
     this.router.get('/away', this._leaderbordController.getAwayTeams);
   };
