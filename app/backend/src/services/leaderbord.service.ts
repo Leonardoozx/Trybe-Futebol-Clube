@@ -21,7 +21,6 @@ class LeaderbordServices {
 
   private _allHomeTeams = async () => {
     const allMatches = await this._matchServices.getAllEndedMatches();
-
     const allTeamsInfos: ILeaderboard[] = [];
     await Promise.all(
       allMatches.map(async (team) => {
@@ -77,7 +76,6 @@ class LeaderbordServices {
           }
         }
       }),
-
     );
     return Promise.all(
       allTeamsInfos
@@ -120,7 +118,6 @@ class LeaderbordServices {
           }
         }
       }),
-
     );
     return Promise.all(
       allTeamsInfos
