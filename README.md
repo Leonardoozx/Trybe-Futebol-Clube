@@ -47,5 +47,9 @@ Na sua máquina você deve ter:
   
  - Na raiz do projeto, rode o comando `npm run compose:up`
  - Entre em [http://localhost:3000/](http://localhost:3000/)
- - Caso queira fazer login na aplicação, utilize o email: `user@user.com` e senha: `secret_user`
  - Desfrute :)
+
+# Caso queira fazer login na aplicação, você pode usar um destes emails e senhas:
+
+- Para fazer login como `admin`, utilize o email `admin@admin.com` e senha `secret_admin`
+- E para fazer login como `usuário`, utilize o email `user@user.com` e senha `secret_user`
