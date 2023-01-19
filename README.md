@@ -1,5 +1,10 @@
 # Boas vindas ao repositório do Trybe Futebol Clube!
 
+## Projeto feito com:
+
+- Front-end: React.js
+- Back-end: TypeScript, Sequelize (mysql2), Express.js
+
 <summary><strong> ⚠️ Configurações mínimas para execução do projeto</strong></summary><br />
 
 Na sua máquina você deve ter:
@@ -37,3 +42,10 @@ Na sua máquina você deve ter:
   **⚠️ Variáveis de ambiente além das especificadas acima não são suportadas, pois não são esperadas pelo avaliador do projeto. ⚠️**
 
   **⚠️ Não defina variável de ambiente para o nome do banco, o mesmo deve se manter com o nome `TRYBE_FUTEBOL_CLUBE`. ⚠️**
+  
+  # Como rodar o projeto:
+  
+ - Na raiz do projeto, rode o comando `npm run compose:up`
+ - Entre em [http://localhost:3000/](http://localhost:3000/)
+ - Caso queira fazer login na aplicação, utilize o email: `user@user.com` e senha: `secret_user`
+ - Desfrute :)
