@@ -39,7 +39,7 @@ Na sua máquina você deve ter:
   DB_PORT=3306
   ```
 
-  **⚠️ Variáveis de ambiente além das especificadas acima não são suportadas, pois não são esperadas pelo avaliador do projeto. ⚠️**
+  **⚠️ Variáveis de ambiente além das especificadas acima não são suportadas. ⚠️**
 
   **⚠️ Não defina variável de ambiente para o nome do banco, o mesmo deve se manter com o nome `TRYBE_FUTEBOL_CLUBE`. ⚠️**
   
